@@ -2,5 +2,9 @@
 .DS_Store
 *.o
 output/
-project/auto_exhaust/Keil_project/list/
+project/auto_exhaust/Keil_project/list
+project/auto_exhaust/Keil_project/EventRecorderStub.scvd
+project/auto_exhaust/Keil_project/JLinkLog.txt
+project/auto_exhaust/Keil_project/JLinkSettings.ini
+project/auto_exhaust/Keil_project/Project.uvgui.Alex
 

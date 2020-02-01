@@ -8,21 +8,27 @@
 #include <sys/procinit.h>
 #include <sys/etimer.h>
 #include <sys/autostart.h>
+
 #include <dev/serial-line.h>
 #include "serial-shell/serial-shell.h"
 #include <debug-uart.h>
+
+#ifdef SHELL_CONF_PROMPT
+char shell_prompt_text[] = "Ruijie> ";
+#endif
+
+#ifdef SHELL_CONF_BANNER
+char shell_banner_text[] = "Ruijie command shell";
+#endif
+
 
 unsigned int idle_count = 0;
 
 uint16_t i;
 
 PROCESS(hello_world_process, "Hello world");
-/*PROCESS 宏实际上声明一个函数并定义一个进程控制块，新创建的进程 next 指针指向空，进程名称为“Hello world”，
-进程执行体函数指针为process_thread_hello_world_process ， 保存行数的pt为0 ，状态为 0( 即PROCESS_STATE_NONE)，
-优先级标记位 needspoll 也为 0(即普通优先级)。*/
 
 PROCESS(led_process, "led");
-PROCESS(stm32_shell_process, "shell");
 
 AUTOSTART_PROCESSES(&led_process);
 
@@ -68,16 +74,6 @@ PROCESS_THREAD(hello_world_process, ev, data)
     PROCESS_END();//宏用于辅助保存断点信息 (即行数 )
 }
 
-PROCESS_THREAD(stm32_shell_process, ev, data)
-{
-    PROCESS_BEGIN();
-
-    serial_shell_init();//???shell
-	/* add the shell blink command */
-   // shell_blink_init();
-    PROCESS_END();
-}
-
 int main()
 {
   gd_eval_led_init(LED2);
@@ -87,26 +83,23 @@ int main()
   bsp_uart_init(BSP_COM0, 115200U);
   dbg_setup_uart();
   
-	printf("Initialising\r\n"); 
 	clock_init();
 	process_init();
-  #if 1
+
   nvic_irq_enable(USART0_IRQn, 0, 0);
           
   uart1_set_input(serial_line_input_byte);
   serial_line_init();
-  //serial_shell_init();
+  serial_shell_init();
 
   /* enable USART0 receive interrupt */
   usart_interrupt_enable(USART0, USART_INT_RBNE);
   
   /* enable USART0 transmit interrupt */
   //usart_interrupt_enable(USART0, USART_INT_TBE);
-#endif
-	process_start(&etimer_process, NULL);//启动系统进程
-  process_start(&stm32_shell_process, NULL);
+
+  process_start(&etimer_process, NULL);//启动系统进程
 	autostart_start(autostart_processes);//启动用户自启动进程
-	//EvbUart1Printf("Processes running\r\n");
 	while(1) {
 		do {
 		} while(process_run() > 0);
