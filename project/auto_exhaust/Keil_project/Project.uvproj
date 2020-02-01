@@ -687,27 +687,47 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Doc</GroupName>
+          <GroupName>contiki-core-dev</GroupName>
           <Files>
             <File>
-              <FileName>readme.txt</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\readme.txt</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>contiki_cpu</GroupName>
-          <Files>
-            <File>
-              <FileName>clock.c</FileName>
+              <FileName>serial-line.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\clock.c</FilePath>
+              <FilePath>..\..\..\contiki\core\dev\serial-line.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>contiki_sys</GroupName>
+          <GroupName>contiki-core-lib</GroupName>
+          <Files>
+            <File>
+              <FileName>list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\list.c</FilePath>
+            </File>
+            <File>
+              <FileName>print-stats.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\print-stats.c</FilePath>
+            </File>
+            <File>
+              <FileName>ringbuf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\ringbuf.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-core-net</GroupName>
+          <Files>
+            <File>
+              <FileName>linkaddr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\net\linkaddr.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-core-sys</GroupName>
           <Files>
             <File>
               <FileName>autostart.c</FileName>
@@ -732,6 +752,71 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>contiki-cpu</GroupName>
+          <Files>
+            <File>
+              <FileName>clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\clock.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug-uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\debug-uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-serial-shell</GroupName>
+          <Files>
+            <File>
+              <FileName>serial-shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\apps\serial-shell\serial-shell.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-shell</GroupName>
+          <Files>
+            <File>
+              <FileName>shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\apps\shell\shell.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>adcan_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>adcan_bsp_eval.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_eval.c</FilePath>
+            </File>
+            <File>
+              <FileName>adcan_bsp_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Doc</GroupName>
+          <Files>
+            <File>
+              <FileName>readme.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\readme.txt</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>user</GroupName>
           <Files>
             <File>
@@ -743,21 +828,6 @@
               <FileName>gd32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\gd32f10x_it.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>BSP</GroupName>
-          <Files>
-            <File>
-              <FileName>adc_can_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\adc_can\adc_can_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>adc_can_eval_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\adc_can\adc_can_eval_bsp.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1134,7 +1204,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,GD32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\firmware\GD32F10x_Firmware_Library\Firmware\GD32F10x_standard_peripheral\Include;..\..\..\firmware\GD32F10x_Firmware_Library\Firmware\CMSIS\GD\GD32F10x\Include;..\..\Utilities;..\..\..\firmware\GD32F10x_Firmware_Library\Firmware\CMSIS;..\;..\..\..\contiki\core;..\..\..\contiki\cpu\arm\common;..\..\..\board</IncludePath>
+              <IncludePath>..\..\..\firmware\GD32F10x_Firmware_Library\Firmware\GD32F10x_standard_peripheral\Include;..\..\..\firmware\GD32F10x_Firmware_Library\Firmware\CMSIS\GD\GD32F10x\Include;..\..\Utilities;..\..\..\firmware\GD32F10x_Firmware_Library\Firmware\CMSIS;..\;..\..\..\contiki\core;..\..\..\contiki\cpu\arm\common;..\..\..\board;..\..\..\contiki\cpu\arm\gd32f103;..\..\..\contiki\apps</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1445,27 +1515,47 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Doc</GroupName>
+          <GroupName>contiki-core-dev</GroupName>
           <Files>
             <File>
-              <FileName>readme.txt</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\readme.txt</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>contiki_cpu</GroupName>
-          <Files>
-            <File>
-              <FileName>clock.c</FileName>
+              <FileName>serial-line.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\clock.c</FilePath>
+              <FilePath>..\..\..\contiki\core\dev\serial-line.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>contiki_sys</GroupName>
+          <GroupName>contiki-core-lib</GroupName>
+          <Files>
+            <File>
+              <FileName>list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\list.c</FilePath>
+            </File>
+            <File>
+              <FileName>print-stats.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\print-stats.c</FilePath>
+            </File>
+            <File>
+              <FileName>ringbuf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\ringbuf.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-core-net</GroupName>
+          <Files>
+            <File>
+              <FileName>linkaddr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\net\linkaddr.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-core-sys</GroupName>
           <Files>
             <File>
               <FileName>autostart.c</FileName>
@@ -1490,6 +1580,71 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>contiki-cpu</GroupName>
+          <Files>
+            <File>
+              <FileName>clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\clock.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug-uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\debug-uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-serial-shell</GroupName>
+          <Files>
+            <File>
+              <FileName>serial-shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\apps\serial-shell\serial-shell.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-shell</GroupName>
+          <Files>
+            <File>
+              <FileName>shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\apps\shell\shell.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>adcan_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>adcan_bsp_eval.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_eval.c</FilePath>
+            </File>
+            <File>
+              <FileName>adcan_bsp_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Doc</GroupName>
+          <Files>
+            <File>
+              <FileName>readme.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\readme.txt</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>user</GroupName>
           <Files>
             <File>
@@ -1501,21 +1656,6 @@
               <FileName>gd32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\gd32f10x_it.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>BSP</GroupName>
-          <Files>
-            <File>
-              <FileName>adc_can_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\adc_can\adc_can_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>adc_can_eval_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\adc_can\adc_can_eval_bsp.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2202,27 +2342,47 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Doc</GroupName>
+          <GroupName>contiki-core-dev</GroupName>
           <Files>
             <File>
-              <FileName>readme.txt</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\readme.txt</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>contiki_cpu</GroupName>
-          <Files>
-            <File>
-              <FileName>clock.c</FileName>
+              <FileName>serial-line.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\clock.c</FilePath>
+              <FilePath>..\..\..\contiki\core\dev\serial-line.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>contiki_sys</GroupName>
+          <GroupName>contiki-core-lib</GroupName>
+          <Files>
+            <File>
+              <FileName>list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\list.c</FilePath>
+            </File>
+            <File>
+              <FileName>print-stats.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\print-stats.c</FilePath>
+            </File>
+            <File>
+              <FileName>ringbuf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\ringbuf.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-core-net</GroupName>
+          <Files>
+            <File>
+              <FileName>linkaddr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\net\linkaddr.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-core-sys</GroupName>
           <Files>
             <File>
               <FileName>autostart.c</FileName>
@@ -2247,6 +2407,71 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>contiki-cpu</GroupName>
+          <Files>
+            <File>
+              <FileName>clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\clock.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug-uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\debug-uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-serial-shell</GroupName>
+          <Files>
+            <File>
+              <FileName>serial-shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\apps\serial-shell\serial-shell.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-shell</GroupName>
+          <Files>
+            <File>
+              <FileName>shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\apps\shell\shell.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>adcan_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>adcan_bsp_eval.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_eval.c</FilePath>
+            </File>
+            <File>
+              <FileName>adcan_bsp_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Doc</GroupName>
+          <Files>
+            <File>
+              <FileName>readme.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\readme.txt</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>user</GroupName>
           <Files>
             <File>
@@ -2258,21 +2483,6 @@
               <FileName>gd32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\gd32f10x_it.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>BSP</GroupName>
-          <Files>
-            <File>
-              <FileName>adc_can_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\adc_can\adc_can_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>adc_can_eval_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\adc_can\adc_can_eval_bsp.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2959,27 +3169,47 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Doc</GroupName>
+          <GroupName>contiki-core-dev</GroupName>
           <Files>
             <File>
-              <FileName>readme.txt</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\readme.txt</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>contiki_cpu</GroupName>
-          <Files>
-            <File>
-              <FileName>clock.c</FileName>
+              <FileName>serial-line.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\clock.c</FilePath>
+              <FilePath>..\..\..\contiki\core\dev\serial-line.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>contiki_sys</GroupName>
+          <GroupName>contiki-core-lib</GroupName>
+          <Files>
+            <File>
+              <FileName>list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\list.c</FilePath>
+            </File>
+            <File>
+              <FileName>print-stats.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\print-stats.c</FilePath>
+            </File>
+            <File>
+              <FileName>ringbuf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\lib\ringbuf.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-core-net</GroupName>
+          <Files>
+            <File>
+              <FileName>linkaddr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\core\net\linkaddr.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-core-sys</GroupName>
           <Files>
             <File>
               <FileName>autostart.c</FileName>
@@ -3004,6 +3234,71 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>contiki-cpu</GroupName>
+          <Files>
+            <File>
+              <FileName>clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\clock.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug-uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\cpu\arm\gd32f103\debug-uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-serial-shell</GroupName>
+          <Files>
+            <File>
+              <FileName>serial-shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\apps\serial-shell\serial-shell.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>contiki-shell</GroupName>
+          <Files>
+            <File>
+              <FileName>shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\contiki\apps\shell\shell.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>adcan_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>adcan_bsp_eval.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_eval.c</FilePath>
+            </File>
+            <File>
+              <FileName>adcan_bsp_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Doc</GroupName>
+          <Files>
+            <File>
+              <FileName>readme.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\readme.txt</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>user</GroupName>
           <Files>
             <File>
@@ -3015,21 +3310,6 @@
               <FileName>gd32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\gd32f10x_it.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>BSP</GroupName>
-          <Files>
-            <File>
-              <FileName>adc_can_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\adc_can\adc_can_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>adc_can_eval_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\adc_can\adc_can_eval_bsp.c</FilePath>
             </File>
           </Files>
         </Group>
