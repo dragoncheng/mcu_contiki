@@ -1,6 +1,55 @@
 
 #include "adcan_bsp_eval.h"
 
+
+/* eval board low layer led */
+#define LEDn                             4U
+
+#define LED2_PIN                         GPIO_PIN_0
+#define LED2_GPIO_PORT                   GPIOB
+#define LED2_GPIO_CLK                    RCU_GPIOB
+  
+#define LED3_PIN                         GPIO_PIN_1
+#define LED3_GPIO_PORT                   GPIOB
+#define LED3_GPIO_CLK                    RCU_GPIOB
+  
+#define LED4_PIN                         GPIO_PIN_0
+#define LED4_GPIO_PORT                   GPIOE
+#define LED4_GPIO_CLK                    RCU_GPIOE
+  
+#define LED5_PIN                         GPIO_PIN_1
+#define LED5_GPIO_PORT                   GPIOE
+#define LED5_GPIO_CLK                    RCU_GPIOE
+
+#define KEYn                             3U
+
+/* wakeup push-button */
+#define WAKEUP_KEY_PIN                   GPIO_PIN_0
+#define WAKEUP_KEY_GPIO_PORT             GPIOA
+#define WAKEUP_KEY_GPIO_CLK              RCU_GPIOA
+#define WAKEUP_KEY_EXTI_LINE             EXTI_0
+#define WAKEUP_KEY_EXTI_PORT_SOURCE      GPIO_PORT_SOURCE_GPIOA
+#define WAKEUP_KEY_EXTI_PIN_SOURCE       GPIO_PIN_SOURCE_0
+#define WAKEUP_KEY_EXTI_IRQn             EXTI0_IRQn  
+
+/* tamper push-button */
+#define TAMPER_KEY_PIN                   GPIO_PIN_13
+#define TAMPER_KEY_GPIO_PORT             GPIOC
+#define TAMPER_KEY_GPIO_CLK              RCU_GPIOC
+#define TAMPER_KEY_EXTI_LINE             EXTI_13
+#define TAMPER_KEY_EXTI_PORT_SOURCE      GPIO_PORT_SOURCE_GPIOC
+#define TAMPER_KEY_EXTI_PIN_SOURCE       GPIO_PIN_SOURCE_13
+#define TAMPER_KEY_EXTI_IRQn             EXTI10_15_IRQn
+
+/* user push-button */
+#define USER_KEY_PIN                     GPIO_PIN_14
+#define USER_KEY_GPIO_PORT               GPIOB
+#define USER_KEY_GPIO_CLK                RCU_GPIOB
+#define USER_KEY_EXTI_LINE               EXTI_14
+#define USER_KEY_EXTI_PORT_SOURCE        GPIO_PORT_SOURCE_GPIOB
+#define USER_KEY_EXTI_PIN_SOURCE         GPIO_PIN_SOURCE_14
+#define USER_KEY_EXTI_IRQn               EXTI10_15_IRQn
+
 /* private variables */
 static uint32_t GPIO_PORT[LEDn] = {LED2_GPIO_PORT, LED3_GPIO_PORT,
                                    LED4_GPIO_PORT, LED5_GPIO_PORT};
@@ -41,7 +90,7 @@ static uint8_t KEY_IRQn[KEYn] = {WAKEUP_KEY_EXTI_IRQn,
     \param[out] none
     \retval     none
 */
-void gd_eval_led_init(led_typedef_enum lednum)
+void bsp_eval_led_init(led_typedef_enum lednum)
 {
     /* enable the led clock */
     rcu_periph_clock_enable(GPIO_CLK[lednum]);
@@ -61,7 +110,7 @@ void gd_eval_led_init(led_typedef_enum lednum)
     \param[out] none
     \retval     none
 */
-void gd_eval_led_on(led_typedef_enum lednum)
+void bsp_eval_led_on(led_typedef_enum lednum)
 {
     GPIO_BOP(GPIO_PORT[lednum]) = GPIO_PIN[lednum];
 }
@@ -76,7 +125,7 @@ void gd_eval_led_on(led_typedef_enum lednum)
     \param[out] none
     \retval     none
 */
-void gd_eval_led_off(led_typedef_enum lednum)
+void bsp_eval_led_off(led_typedef_enum lednum)
 {
     GPIO_BC(GPIO_PORT[lednum]) = GPIO_PIN[lednum];
 }
@@ -91,7 +140,7 @@ void gd_eval_led_off(led_typedef_enum lednum)
     \param[out] none
     \retval     none
 */
-void gd_eval_led_toggle(led_typedef_enum lednum)
+void bsp_eval_led_toggle(led_typedef_enum lednum)
 {
     gpio_bit_write(GPIO_PORT[lednum], GPIO_PIN[lednum], 
         (bit_status)(1-gpio_input_bit_get(GPIO_PORT[lednum], GPIO_PIN[lednum])));
@@ -109,7 +158,7 @@ void gd_eval_led_toggle(led_typedef_enum lednum)
     \param[out] none
     \retval     none
 */
-void gd_eval_key_init(key_typedef_enum key_num, keymode_typedef_enum key_mode)
+void bsp_eval_key_init(key_typedef_enum key_num, keymode_typedef_enum key_mode)
 {
     /* enable the key clock */
     rcu_periph_clock_enable(KEY_CLK[key_num]);
@@ -140,7 +189,7 @@ void gd_eval_key_init(key_typedef_enum key_num, keymode_typedef_enum key_mode)
     \param[out] none
     \retval     the key's GPIO pin value
 */
-uint8_t gd_eval_key_state_get(key_typedef_enum key)
+uint8_t bsp_eval_key_state_get(key_typedef_enum key)
 {
     return gpio_input_bit_get(KEY_PORT[key], KEY_PIN[key]);
 }

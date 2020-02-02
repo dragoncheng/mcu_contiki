@@ -13,7 +13,6 @@
 
 /* configure COM port */
 void bsp_uart_init(uint32_t com, uint32_t bandrate);
-int32_t bsp_uart_dma_config(uint32_t com);
 void uart1_set_input(int (* input)(unsigned char c));
 
 #ifdef cplusplus

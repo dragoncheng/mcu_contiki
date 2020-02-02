@@ -10,6 +10,7 @@
 #include "adcan_bsp_uart.h"
 #include "adcan_bsp_eval.h"
  
+void bsp_irq_enable(void);
 #ifdef cplusplus
 }
 #endif

@@ -804,6 +804,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\board\adcan\adcan_bsp_uart.c</FilePath>
             </File>
+            <File>
+              <FileName>adcan_bsp_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_adc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1632,6 +1637,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\board\adcan\adcan_bsp_uart.c</FilePath>
             </File>
+            <File>
+              <FileName>adcan_bsp_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_adc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2459,6 +2469,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\board\adcan\adcan_bsp_uart.c</FilePath>
             </File>
+            <File>
+              <FileName>adcan_bsp_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_adc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3285,6 +3300,11 @@
               <FileName>adcan_bsp_uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\board\adcan\adcan_bsp_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>adcan_bsp_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\adcan\adcan_bsp_adc.c</FilePath>
             </File>
           </Files>
         </Group>
